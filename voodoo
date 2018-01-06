@@ -1,7 +1,7 @@
-export PATH=$PATH:~/openwrt-realtek/staging_dir/toolchain-mips_rlx4181_gcc-4.6-linaro_uClibc-0.9.33.2/bin/
-export STAGING_DIR=~/openwrt-realtek/staging_dir/target-mips_rlx4181_uClibc-0.9.33.2_lexra/
+export PATH=$PATH:~/openwrt/buildroot-2017.11/output/host/bin/
+export STAGING_DIR=~/openwrt/buildroot-2017.11/output/host/mips-buildroot-linux-uclibc/
 
-CROSS_COMPILE=mips-openwrt-linux- ARCH=mips make $* &&
-mips-openwrt-linux-objcopy -Obinary ./vmlinux ./vmlinux.bin 
-mips-openwrt-linux-objcopy -Obinary ./vmlinuz ./vmlinuz.bin 
+CROSS_COMPILE=mips-linux- ARCH=mips make $* &&
+mips-openwrt-linux-objcopy -Obinary ./vmlinux ./vmlinux.bin &&
+mips-openwrt-linux-objcopy -Obinary ./vmlinuz ./vmlinuz.bin
 #./fl.sh ./vmlinuz.bin 
